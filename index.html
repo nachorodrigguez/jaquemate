@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ja, que mate! | Mates Artesanales y Accesorios</title>
+    <meta name="description" content="Mates artesanales, termos y materas de cuero de la más alta calidad. Inspirado en la tradición argentina con un diseño rústico y elegante.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">Ja, que mate!</a>
+            
+            <nav class="desktop-nav">
+                <a href="#mates">Mates</a>
+                <a href="#termos">Termos</a>
+                <a href="#combos">Combos</a>
+                <a href="#materas">Materas</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+
+            <div class="nav-icons">
+                <div class="search-bar">
+                    <i data-lucide="search"></i>
+                    <input type="text" placeholder="Buscar...">
+                </div>
+                <button class="cart-button" id="cart-btn">
+                    <i data-lucide="shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="#mates">Mates</a>
+        <a href="#termos">Termos</a>
+        <a href="#combos">Combos</a>
+        <a href="#materas">Materas</a>
+        <a href="#contacto">Contacto</a>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h2>Tu Carrito</h2>
+            <button id="close-cart"><i data-lucide="x"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Items will be injected here by JS -->
+            <div class="empty-cart-msg">Tu carrito está vacío</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0</span>
+            </div>
+            <!-- Botón de checkout preparado para Mercado Pago -->
+            <button class="checkout-btn" id="checkout-btn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <img src="images/hero_mate_thermos.png" alt="Mate y Termo Artesanal" class="hero-bg">
+        <div class="hero-content">
+            <h1>Tradición y Elegancia en cada mate.</h1>
+            <p>Descubrí nuestra exclusiva colección de mates artesanales y accesorios de cuero premium.</p>
+            <a href="#productos" class="cta-button">Ver Colección</a>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="trust-item">
+            <i data-lucide="truck"></i>
+            <h3>Envíos a todo el país</h3>
+            <p>Llegamos a tu puerta</p>
+        </div>
+        <div class="trust-item">
+            <i data-lucide="credit-card"></i>
+            <h3>Cuotas sin interés</h3>
+            <p>Con tarjetas seleccionadas</p>
+        </div>
+        <div class="trust-item">
+            <i data-lucide="shield-check"></i>
+            <h3>Compra segura</h3>
+            <p>Protegemos tus datos</p>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="categories" id="categorias">
+        <h2 class="section-title">Categorías</h2>
+        <div class="category-grid">
+            <div class="category-card" onclick="location.href='#mates'">
+                <div class="category-img-wrapper">
+                    <img src="images/product_mate_imperial.png" alt="Mates">
+                </div>
+                <h3>Mates</h3>
+            </div>
+            <div class="category-card" onclick="location.href='#termos'">
+                <div class="category-img-wrapper">
+                    <img src="images/product_thermos.png" alt="Termos">
+                </div>
+                <h3>Termos</h3>
+            </div>
+            <div class="category-card" onclick="location.href='#materas'">
+                <div class="category-img-wrapper">
+                    <img src="images/product_matera.png" alt="Materas">
+                </div>
+                <h3>Materas</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="products" id="productos">
+        <h2 class="section-title">Nuestros Favoritos</h2>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/product_mate_imperial.png" alt="Mate Imperial">
+                    <div class="product-overlay">
+                        <button class="add-to-cart-btn" data-id="1" data-name="Mate Imperial de Cuero" data-price="45000" data-img="images/product_mate_imperial.png">
+                            Añadir al carrito
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Mate Imperial de Cuero y Alpaca</h3>
+                    <p class="product-price">$45.000</p>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/product_thermos.png" alt="Termo Forrado">
+                    <div class="product-overlay">
+                        <button class="add-to-cart-btn" data-id="2" data-name="Termo Acero Forrado" data-price="85000" data-img="images/product_thermos.png">
+                            Añadir al carrito
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Termo Acero Forrado en Cuero</h3>
+                    <p class="product-price">$85.000</p>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/product_matera.png" alt="Matera Premium">
+                    <div class="product-overlay">
+                        <button class="add-to-cart-btn" data-id="3" data-name="Matera Premium de Cuero" data-price="120000" data-img="images/product_matera.png">
+                            Añadir al carrito
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Matera Premium de Cuero</h3>
+                    <p class="product-price">$120.000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24" width="30" height="30" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>Ja, que mate!</h2>
+                <p>Elaborando tradición con pasión y calidad premium.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Enlaces</h3>
+                <ul>
+                    <li><a href="#mates">Mates</a></li>
+                    <li><a href="#termos">Termos</a></li>
+                    <li><a href="#materas">Materas</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <p>Email: hola@jaquemate.com</p>
+                <p>Tel: +54 11 1234-5678</p>
+                <div class="social-icons">
+                    <i data-lucide="instagram"></i>
+                    <i data-lucide="facebook"></i>
+                    <i data-lucide="twitter"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ja, que mate!. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
