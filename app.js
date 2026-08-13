@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const mensajeCodificado = encodeURIComponent(mensaje);
             
             // Número de WhatsApp (puedes cambiarlo por el tuyo)
-            const numeroWhatsApp = "5491100000000"; // Reemplazar con el número real
+            const numeroWhatsApp = "1131340114"; // Reemplazar con el número real
             const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
             
             // Abrir WhatsApp en una nueva pestaña

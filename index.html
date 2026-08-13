@@ -30,14 +30,9 @@
                 <a href="#termos">Termos</a>
                 <a href="#combos">Combos</a>
                 <a href="#materas">Materas</a>
-                <a href="#contacto">Contacto</a>
             </nav>
 
             <div class="nav-icons">
-                <div class="search-bar">
-                    <i data-lucide="search"></i>
-                    <input type="text" placeholder="Buscar...">
-                </div>
                 <button class="cart-button" id="cart-btn">
                     <i data-lucide="shopping-bag"></i>
                     <span class="cart-count">0</span>
@@ -55,7 +50,6 @@
         <a href="#termos">Termos</a>
         <a href="#combos">Combos</a>
         <a href="#materas">Materas</a>
-        <a href="#contacto">Contacto</a>
     </div>
 
     <!-- Cart Modal -->
@@ -90,24 +84,6 @@
         </div>
     </section>
 
-    <!-- Trust Section -->
-    <section class="trust-section">
-        <div class="trust-item">
-            <i data-lucide="truck"></i>
-            <h3>Envíos a todo el país</h3>
-            <p>Llegamos a tu puerta</p>
-        </div>
-        <div class="trust-item">
-            <i data-lucide="credit-card"></i>
-            <h3>Cuotas sin interés</h3>
-            <p>Con tarjetas seleccionadas</p>
-        </div>
-        <div class="trust-item">
-            <i data-lucide="shield-check"></i>
-            <h3>Compra segura</h3>
-            <p>Protegemos tus datos</p>
-        </div>
-    </section>
 
     <!-- Featured Categories -->
     <section class="categories" id="categorias">
@@ -142,16 +118,14 @@
             <div class="product-card">
                 <div class="product-image">
                     <img src="images/product_mate_imperial.png" alt="Mate Imperial">
-                    <div class="product-overlay">
-                        <button class="add-to-cart-btn" data-id="1" data-name="Mate Imperial de Cuero"
-                            data-price="45000" data-img="images/product_mate_imperial.png">
-                            Añadir al carrito
-                        </button>
-                    </div>
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">Mate Imperial de Cuero y Alpaca</h3>
                     <p class="product-price">$45.000</p>
+                    <button class="add-to-cart-btn" data-id="1" data-name="Mate Imperial de Cuero"
+                        data-price="45000" data-img="images/product_mate_imperial.png">
+                        Añadir al carrito
+                    </button>
                 </div>
             </div>
 
@@ -159,16 +133,14 @@
             <div class="product-card">
                 <div class="product-image">
                     <img src="images/product_thermos.png" alt="Termo Forrado">
-                    <div class="product-overlay">
-                        <button class="add-to-cart-btn" data-id="2" data-name="Termo Acero Forrado" data-price="85000"
-                            data-img="images/product_thermos.png">
-                            Añadir al carrito
-                        </button>
-                    </div>
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">Termo Acero Forrado en Cuero</h3>
                     <p class="product-price">$85.000</p>
+                    <button class="add-to-cart-btn" data-id="2" data-name="Termo Acero Forrado" data-price="85000"
+                        data-img="images/product_thermos.png">
+                        Añadir al carrito
+                    </button>
                 </div>
             </div>
 
@@ -176,33 +148,28 @@
             <div class="product-card">
                 <div class="product-image">
                     <img src="images/product_matera.png" alt="Matera Premium">
-                    <div class="product-overlay">
-                        <button class="add-to-cart-btn" data-id="3" data-name="Matera Premium de Cuero"
-                            data-price="120000" data-img="images/product_matera.png">
-                            Añadir al carrito
-                        </button>
-                    </div>
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">Matera Premium de Cuero</h3>
                     <p class="product-price">$120.000</p>
+                    <button class="add-to-cart-btn" data-id="3" data-name="Matera Premium de Cuero"
+                        data-price="120000" data-img="images/product_matera.png">
+                        Añadir al carrito
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
-        <svg viewBox="0 0 24 24" width="30" height="30" stroke="currentColor" stroke-width="2" fill="none"
-            stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
-            <path
-                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
-            </path>
-        </svg>
-    </a>
+    <!-- Floating Social Icons -->
+    <div class="floating-social">
+        <a href="https://wa.me/1131340114" class="social-float whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.146.562 4.17 1.583 5.952L.15 23.364l5.525-1.448c1.716.93 3.65 1.423 5.688 1.423 6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm5.635 17.15c-.244.693-1.41 1.258-2.025 1.332-.616.074-1.393.184-4.52-1.11-3.766-1.56-6.196-5.414-6.38-5.658-.184-.244-1.523-2.028-1.523-3.87 0-1.841.96-2.748 1.3-3.116.34-.368.736-.46 1.012-.46.276 0 .552 0 .798.012.26.012.607-.098.948.724.43 1.031 1.442 3.523 1.565 3.768.123.245.209.528.061.822-.147.294-.221.466-.442.724-.22.257-.456.551-.661.76-.22.22-.456.46-.209.89.246.429 1.096 1.815 2.355 2.937 1.621 1.446 2.977 1.895 3.394 2.09.418.196.662.171.908-.098.246-.27 1.056-1.227 1.34-1.644.282-.417.564-.343.945-.208.381.135 2.408 1.134 2.82 1.343.411.208.683.319.782.49.098.172.098 1.006-.147 1.7z"/></svg>
+        </a>
+    </div>
 
     <!-- Footer -->
-    <footer class="footer" id="contacto">
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand">
                 <h2>Ja, que mate!</h2>
@@ -214,17 +181,18 @@
                     <li><a href="#mates">Mates</a></li>
                     <li><a href="#termos">Termos</a></li>
                     <li><a href="#materas">Materas</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </div>
             <div class="footer-contact">
-                <h3>Contacto</h3>
-                <p>Email: hola@jaquemate.com</p>
-                <p>Tel: +54 11 1234-5678</p>
+                <h3>Ubicación y Entregas</h3>
+                <p>Envíos a todo el país.</p>
                 <div class="social-icons">
-                    <i data-lucide="instagram"></i>
-                    <i data-lucide="facebook"></i>
-                    <i data-lucide="twitter"></i>
+                    <a href="https://www.instagram.com/ja_que_mate/" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" stroke="none"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="https://wa.me/1131340114" target="_blank" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" stroke="none"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.146.562 4.17 1.583 5.952L.15 23.364l5.525-1.448c1.716.93 3.65 1.423 5.688 1.423 6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm5.635 17.15c-.244.693-1.41 1.258-2.025 1.332-.616.074-1.393.184-4.52-1.11-3.766-1.56-6.196-5.414-6.38-5.658-.184-.244-1.523-2.028-1.523-3.87 0-1.841.96-2.748 1.3-3.116.34-.368.736-.46 1.012-.46.276 0 .552 0 .798.012.26.012.607-.098.948.724.43 1.031 1.442 3.523 1.565 3.768.123.245.209.528.061.822-.147.294-.221.466-.442.724-.22.257-.456.551-.661.76-.22.22-.456.46-.209.89.246.429 1.096 1.815 2.355 2.937 1.621 1.446 2.977 1.895 3.394 2.09.418.196.662.171.908-.098.246-.27 1.056-1.227 1.34-1.644.282-.417.564-.343.945-.208.381.135 2.408 1.134 2.82 1.343.411.208.683.319.782.49.098.172.098 1.006-.147 1.7z"/></svg>
+                    </a>
                 </div>
             </div>
         </div>

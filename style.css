@@ -485,12 +485,26 @@ h1, h2, h3, .logo {
     transition: transform 0.5s ease;
 }
 
-.product-overlay {
-    background: transparent;
+.product-info {
+    padding: 1.5rem;
+    text-align: center;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.product-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+}
+
+.product-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
 }
 
 .add-to-cart-btn {
@@ -504,57 +518,15 @@ h1, h2, h3, .logo {
     cursor: pointer;
     transition: var(--transition);
     width: 100%;
-    min-height: 44px; /* Mobile touch target */
+    min-height: 48px; /* Táctil amigable */
 }
 
 .add-to-cart-btn:active {
     filter: brightness(1.2);
 }
 
-@media (min-width: 768px) {
-    .product-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(27, 48, 34, 0.7);
-        opacity: 0;
-        transition: var(--transition);
-    }
-    .product-card:hover .product-overlay {
-        opacity: 1;
-    }
-    .add-to-cart-btn {
-        width: auto;
-        transform: translateY(20px);
-        background-color: var(--color-bg);
-        color: var(--color-text);
-        border: 1px solid var(--color-accent);
-    }
-    .product-card:hover .add-to-cart-btn {
-        transform: translateY(0);
-    }
-    .add-to-cart-btn:hover {
-        background-color: var(--color-accent);
-        color: var(--color-bg);
-    }
-}
-
-.product-info {
-    padding: 1.5rem;
-    text-align: center;
-}
-
-.product-title {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    font-family: var(--font-heading);
-}
-
-.product-price {
-    font-size: 1.1rem;
-    font-weight: 700;
+.add-to-cart-btn:hover {
+    background-color: var(--color-bg);
     color: var(--color-accent);
 }
 
@@ -733,19 +705,23 @@ h1, h2, h3, .logo {
 }
 
 /* =========================================
-   FLOATING WHATSAPP
+   FLOATING SOCIAL ICONS
 ========================================= */
-.whatsapp-float {
+.floating-social {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: #25d366;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 100;
+}
+
+.social-float {
     color: #FFF;
     border-radius: 50px;
     text-align: center;
-    font-size: 30px;
     box-shadow: var(--shadow-lg);
-    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -754,9 +730,27 @@ h1, h2, h3, .logo {
     transition: var(--transition);
 }
 
+.social-float svg {
+    width: 35px;
+    height: 35px;
+}
+
+.whatsapp-float {
+    background-color: #25d366;
+}
+
 .whatsapp-float:hover {
     transform: scale(1.1);
     background-color: #1ebe57;
+}
+
+.instagram-float {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.instagram-float:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
 }
 
 /* =========================================
