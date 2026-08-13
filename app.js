@@ -160,13 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Checkout Logic (Mercado Pago Prep) ---
-    
-    /**
-     * IMPORTANTE: Función preparada para integrar SDK de Mercado Pago (Checkout Pro)
-     * Debe enviarse la lista de items al backend para generar el 'preference_id',
-     * y luego inicializar el checkout con ese ID.
-     */
+    // --- Checkout Logic (WhatsApp) ---
     async function iniciarCheckout() {
         if(cart.length === 0) {
             alert('Tu carrito está vacío');
@@ -174,33 +168,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            checkoutBtn.textContent = 'Procesando...';
+            checkoutBtn.textContent = 'Redirigiendo a WhatsApp...';
             checkoutBtn.disabled = true;
 
-            // TODO: Integración Mercado Pago (Checkout Pro)
-            /*
-            // 1. Enviar el 'cart' a tu servidor (Node.js/PHP/Python) para crear la preferencia.
-            const response = await fetch('/crear-preferencia', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ items: cart })
+            let mensaje = "¡Hola! Me gustaría realizar el siguiente pedido:\n\n";
+            let totalPrice = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                totalPrice += itemTotal;
+                mensaje += `- ${item.quantity}x ${item.name} (${formatPrice(item.price)} c/u) = ${formatPrice(itemTotal)}\n`;
             });
             
-            const preference = await response.json();
+            mensaje += `\n*Total a pagar: ${formatPrice(totalPrice)}*`;
             
-            // 2. Inicializar MercadoPago SDK
-            const mp = new MercadoPago('PUBLIC_KEY', { locale: 'es-AR' });
+            // Codificar el mensaje para URL
+            const mensajeCodificado = encodeURIComponent(mensaje);
             
-            // 3. Abrir el checkout
-            mp.checkout({
-                preference: { id: preference.id },
-                autoOpen: true
-            });
-            */
+            // Número de WhatsApp (puedes cambiarlo por el tuyo)
+            const numeroWhatsApp = "5491100000000"; // Reemplazar con el número real
+            const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
             
-            // Simulación de éxito por ahora
+            // Abrir WhatsApp en una nueva pestaña
+            window.open(urlWhatsApp, '_blank');
+            
+            // Vaciar el carrito después de enviar
             setTimeout(() => {
-                alert('¡Checkout simulado con éxito! (SDK de MP está comentado en el código).');
                 cart = [];
                 updateCartUI();
                 closeCart();
