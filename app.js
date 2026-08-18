@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // --- Mobile Menu Toggle ---
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileNav = document.getElementById('mobile-nav');
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add to Cart Buttons
     const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
-    
+
     addToCartBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const id = e.target.getAttribute('data-id');
@@ -57,15 +57,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Variant Selection Logic
+    document.querySelectorAll('.variant-select').forEach(select => {
+        select.addEventListener('change', (e) => {
+            const selectedOption = e.target.options[e.target.selectedIndex];
+            const price = selectedOption.getAttribute('data-price');
+            const name = selectedOption.getAttribute('data-name');
+            const targetId = e.target.getAttribute('data-target');
+            
+            const btn = document.getElementById(`btn-${targetId}`);
+            const priceEl = document.getElementById(`price-${targetId}`);
+            
+            if (btn && priceEl) {
+                // Update button data
+                btn.setAttribute('data-price', price);
+                btn.setAttribute('data-name', name);
+                // Also update the ID so standard and personalized count as separate items in cart
+                const variantValue = e.target.value;
+                btn.setAttribute('data-id', `${targetId}-${variantValue}`);
+                
+                // Update displayed price
+                priceEl.textContent = formatPrice(parseFloat(price));
+            }
+        });
+    });
+
     function addItemToCart(item) {
         const existingItem = cart.find(cartItem => cartItem.id === item.id);
-        
+
         if (existingItem) {
             existingItem.quantity += 1;
         } else {
             cart.push(item);
         }
-        
+
         updateCartUI();
     }
 
@@ -97,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateCartUI() {
         // Clear container
         cartItemsContainer.innerHTML = '';
-        
+
         let totalItems = 0;
         let totalPrice = 0;
 
@@ -131,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         cartCountEl.textContent = totalItems;
         cartTotalPriceEl.textContent = formatPrice(totalPrice);
-        
+
         // Re-bind events for newly created elements
         bindCartItemEvents();
     }
@@ -153,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Because SVG click might target inner path, use closest to get button
             btn.addEventListener('click', (e) => {
                 const button = e.target.closest('.remove-item');
-                if(button) {
+                if (button) {
                     removeItemFromCart(button.getAttribute('data-id'));
                 }
             });
@@ -162,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Checkout Logic (WhatsApp) ---
     async function iniciarCheckout() {
-        if(cart.length === 0) {
+        if (cart.length === 0) {
             alert('Tu carrito está vacío');
             return;
         }
@@ -173,25 +198,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let mensaje = "¡Hola! Me gustaría realizar el siguiente pedido:\n\n";
             let totalPrice = 0;
-            
+
             cart.forEach(item => {
                 const itemTotal = item.price * item.quantity;
                 totalPrice += itemTotal;
                 mensaje += `- ${item.quantity}x ${item.name} (${formatPrice(item.price)} c/u) = ${formatPrice(itemTotal)}\n`;
             });
-            
+
             mensaje += `\n*Total a pagar: ${formatPrice(totalPrice)}*`;
-            
+
             // Codificar el mensaje para URL
             const mensajeCodificado = encodeURIComponent(mensaje);
-            
+
             // Número de WhatsApp (puedes cambiarlo por el tuyo)
             const numeroWhatsApp = "1131340114"; // Reemplazar con el número real
             const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
-            
+
             // Abrir WhatsApp en una nueva pestaña
             window.open(urlWhatsApp, '_blank');
-            
+
             // Vaciar el carrito después de enviar
             setTimeout(() => {
                 cart = [];
