@@ -234,4 +234,58 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     checkoutBtn.addEventListener('click', iniciarCheckout);
+
+    // --- Carousel Logic ---
+    document.querySelectorAll('.carousel-container').forEach(container => {
+        const track = container.querySelector('.carousel-track');
+        const slides = container.querySelectorAll('.carousel-slide');
+        const prevBtn = container.querySelector('.prev');
+        const nextBtn = container.querySelector('.next');
+        const indicators = container.querySelectorAll('.indicator');
+        
+        let currentIndex = 0;
+
+        if (slides.length <= 1) {
+            if(prevBtn) prevBtn.style.display = 'none';
+            if(nextBtn) nextBtn.style.display = 'none';
+            if(container.querySelector('.carousel-indicators')) container.querySelector('.carousel-indicators').style.display = 'none';
+            return;
+        }
+
+        function updateCarousel(index) {
+            track.style.transform = `translateX(-${index * 100}%)`;
+            indicators.forEach((ind, i) => {
+                ind.classList.toggle('active', i === index);
+            });
+            currentIndex = index;
+        }
+
+        if(nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                let newIndex = currentIndex + 1;
+                if (newIndex >= slides.length) newIndex = 0;
+                updateCarousel(newIndex);
+            });
+        }
+
+        if(prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                let newIndex = currentIndex - 1;
+                if (newIndex < 0) newIndex = slides.length - 1;
+                updateCarousel(newIndex);
+            });
+        }
+
+        indicators.forEach((ind, i) => {
+            ind.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                updateCarousel(i);
+            });
+        });
+    });
 });
