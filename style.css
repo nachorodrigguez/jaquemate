@@ -479,10 +479,15 @@ h1, h2, h3, .logo {
     aspect-ratio: 720 / 1280;
     overflow: hidden;
     background-repeat: no-repeat;
+} 
+
+/*AJUSTES DE IMAGENES*/
+.loro-17-img img{
+     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
 }
-
-
-
 
 .carousel-track {
     display: flex;
