@@ -479,6 +479,10 @@ h1, h2, h3, .logo {
     aspect-ratio: 1020 / 1280;
     overflow: hidden;
     background-repeat: no-repeat;
+}
+
+.carousel-container {
+    touch-action: pan-y; /* Permite scroll vertical pero bloquea scroll horizontal nativo para el swipe */
 } 
 
 /*AJUSTES DE IMAGENES*/

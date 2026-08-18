@@ -297,6 +297,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateCarousel(i);
             });
         });
+
+        // --- Touch Swipe Logic ---
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        container.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        container.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 40; // Pixels needed to trigger swipe
+            const diff = touchEndX - touchStartX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff < 0) {
+                    // Swiped left -> Next slide
+                    let newIndex = currentIndex + 1;
+                    if (newIndex >= slides.length) newIndex = 0;
+                    updateCarousel(newIndex);
+                } else {
+                    // Swiped right -> Previous slide
+                    let newIndex = currentIndex - 1;
+                    if (newIndex < 0) newIndex = slides.length - 1;
+                    updateCarousel(newIndex);
+                }
+            }
+        }
     });
 
     // --- Color Swatches Logic ---
