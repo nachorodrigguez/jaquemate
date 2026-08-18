@@ -907,3 +907,84 @@ h1, h2, h3, .logo {
     color: rgba(255,255,255,0.6);
     font-size: 0.9rem;
 }
+
+/* Color Swatches */
+.color-swatches {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.color-swatch {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.color-swatch.selected {
+    border: 3px solid var(--color-accent);
+    transform: scale(1.1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth transition for image color swap */
+.carousel-slide {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Lightbox Styles */
+.lightbox {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.show .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+    z-index: 2001;
+}
+
+.lightbox-close:hover {
+    color: var(--color-accent);
+}

@@ -47,10 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addToCartBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            const id = e.target.getAttribute('data-id');
-            const name = e.target.getAttribute('data-name');
+            let id = e.target.getAttribute('data-id');
+            let name = e.target.getAttribute('data-name');
             const price = parseFloat(e.target.getAttribute('data-price'));
             const img = e.target.getAttribute('data-img');
+
+            const productInfo = e.target.closest('.product-info');
+            if (productInfo) {
+                const colorSwatch = productInfo.querySelector('.color-swatch.selected');
+                if (colorSwatch) {
+                    const color = colorSwatch.getAttribute('data-color');
+                    name = `${name} (${color})`;
+                    id = `${id}-${color.toLowerCase()}`;
+                }
+            }
 
             addItemToCart({ id, name, price, img, quantity: 1 });
             openCart();
@@ -288,4 +298,59 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // --- Color Swatches Logic ---
+    document.querySelectorAll('.color-swatch').forEach(swatch => {
+        swatch.addEventListener('click', (e) => {
+            const currentSwatch = e.target;
+            const container = currentSwatch.closest('.color-swatches');
+            
+            // Remove selected class from all swatches in this container
+            container.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
+            
+            // Add selected class to the clicked one
+            currentSwatch.classList.add('selected');
+
+            // --- Change image based on color ---
+            const newImgSrc = currentSwatch.getAttribute('data-img');
+            const productCard = currentSwatch.closest('.product-card');
+            
+            if (productCard && newImgSrc && newImgSrc.trim() !== '') {
+                // Seleccionamos la primera imagen del carrusel para ser la "principal"
+                const mainImg = productCard.querySelector('.carousel-slide');
+                if (mainImg) {
+                    mainImg.style.opacity = 0; // Fade out
+                    setTimeout(() => {
+                        mainImg.src = newImgSrc;
+                        mainImg.style.opacity = 1; // Fade in
+                    }, 300); // 300ms matches CSS transition
+                }
+            }
+        });
+    });
+
+    // --- Lightbox Logic ---
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    if (lightbox && lightboxImg && lightboxClose) {
+        document.querySelectorAll('.carousel-slide').forEach(img => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', () => {
+                lightbox.classList.add('show');
+                lightboxImg.src = img.src;
+            });
+        });
+
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('show');
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg) {
+                lightbox.classList.remove('show');
+            }
+        });
+    }
 });

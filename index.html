@@ -139,7 +139,7 @@
                 <div class="product-info">
                     <h3 class="product-title">Mate Criollo</h3>
                     <p class="product-price" id="price-mate-criollo">$ 15.000</p>
-                    <select class="variant-select" data-target="mate-criollo" style="margin-bottom: 1rem; padding: 0.5rem; border-radius: 5px; border: 1px solid var(--color-accent); font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); width: 100%;">
+                    <select class="variant-select" data-target="mate-criollo" style="margin-bottom: 1rem; padding: 0.5rem; border-radius: 5px; border: 1px solid var(--color-accent); font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); width: 100%; font-size: 16px;">
                         <option value="estandar" data-price="15000" data-name="Mate Criollo (Estándar)">Estándar</option>
                         <option value="personalizado" data-price="18000" data-name="Mate Criollo (Personalizado)">Personalizado</option>
                     </select>
@@ -168,7 +168,7 @@
                 <div class="product-info">
                     <h3 class="product-title">Mate Imperial</h3>
                     <p class="product-price" id="price-mate-imperial">$ 25.000</p>
-                    <select class="variant-select" data-target="mate-imperial" style="margin-bottom: 1rem; padding: 0.5rem; border-radius: 5px; border: 1px solid var(--color-accent); font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); width: 100%;">
+                    <select class="variant-select" data-target="mate-imperial" style="margin-bottom: 1rem; padding: 0.5rem; border-radius: 5px; border: 1px solid var(--color-accent); font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); width: 100%; font-size: 16px;">
                         <option value="estandar" data-price="25000" data-name="Mate Imperial (Estándar)">Estándar</option>
                         <option value="personalizado" data-price="28000" data-name="Mate Imperial (Personalizado)">Personalizado</option>
                     </select>
@@ -195,10 +195,16 @@
                 <div class="product-info">
                     <h3 class="product-title">Mate Torpedo</h3>
                     <p class="product-price" id="price-mate-torpedo">$ 20.000</p>
-                    <select class="variant-select" data-target="mate-torpedo" style="margin-bottom: 1rem; padding: 0.5rem; border-radius: 5px; border: 1px solid var(--color-accent); font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); width: 100%;">
+                    <select class="variant-select" data-target="mate-torpedo" style="margin-bottom: 1rem; padding: 0.5rem; border-radius: 5px; border: 1px solid var(--color-accent); font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); width: 100%; font-size: 16px;">
                         <option value="estandar" data-price="20000" data-name="Mate Torpedo (Estándar)">Estándar</option>
                         <option value="personalizado" data-price="23000" data-name="Mate Torpedo (Personalizado)">Personalizado</option>
                     </select>
+                    <div class="color-swatches">
+                        <!-- INSERTAR LINK FOTO NEGRA AQUÍ en data-img (Ej: data-img="./images/foto_negra.jpg") -->
+                        <button class="color-swatch selected" data-color="Negro" data-img="" style="background-color: #000000;" aria-label="Color Negro"></button>
+                        <!-- INSERTAR LINK FOTO MARRÓN AQUÍ en data-img (Ej: data-img="./images/foto_marron.jpg") -->
+                        <button class="color-swatch" data-color="Marrón" data-img="" style="background-color: #630b0b;" aria-label="Color Marrón"></button>
+                    </div>
                     <button class="add-to-cart-btn" id="btn-mate-torpedo" data-id="mate-torpedo-estandar" data-name="Mate Torpedo (Estándar)" data-price="20000" data-img="images/product_mate_imperial.png">
                         Añadir al carrito
                     </button>
@@ -223,10 +229,16 @@
                 <div class="product-info">
                     <h3 class="product-title">Mate Camionero</h3>
                     <p class="product-price" id="price-mate-camionero">$ 20.000</p>
-                    <select class="variant-select" data-target="mate-camionero" style="margin-bottom: 1rem; padding: 0.5rem; border-radius: 5px; border: 1px solid var(--color-accent); font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); width: 100%;">
+                    <select class="variant-select" data-target="mate-camionero" style="margin-bottom: 1rem; padding: 0.5rem; border-radius: 5px; border: 1px solid var(--color-accent); font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); width: 100%; font-size: 16px;">
                         <option value="estandar" data-price="20000" data-name="Mate Camionero (Estándar)">Estándar</option>
                         <option value="personalizado" data-price="23000" data-name="Mate Camionero (Personalizado)">Personalizado</option>
                     </select>
+                    <div class="color-swatches">
+                        <!-- INSERTAR LINK FOTO NEGRA AQUÍ en data-img (Ej: data-img="./images/foto_negra.jpg") -->
+                        <button class="color-swatch selected" data-color="Negro" data-img="" style="background-color: #000000;" aria-label="Color Negro"></button>
+                        <!-- INSERTAR LINK FOTO MARRÓN AQUÍ en data-img (Ej: data-img="./images/foto_marron.jpg") -->
+                        <button class="color-swatch" data-color="Marrón" data-img="" style="background-color: #630b0b;" aria-label="Color Marrón"></button>
+                    </div>
                     <button class="add-to-cart-btn" id="btn-mate-camionero" data-id="mate-camionero-estandar" data-name="Mate Camionero (Estándar)" data-price="20000" data-img="images/product_mate_imperial.png">
                         Añadir al carrito
                     </button>
@@ -239,14 +251,12 @@
             <div class="product-card">
                 <div class="product-image carousel-container loro-17-img">
                     <div class="carousel-track">
-                        <img src="./images/pico_loro_lachula.jpeg" alt="Pico de Loro 17cm 1" class="carousel-slide">
-                        <img src="./images/pico_de_loro_17cm_2.jpeg" alt="Pico de Loro 17cm 2" class="carousel-slide">
+                        <img src="./images/pico_loro_17.jpeg" alt="Pico de Loro 17cm 1" class="carousel-slide">
                     </div>
                     <button class="carousel-btn prev" aria-label="Anterior"><i data-lucide="chevron-left"></i></button>
                     <button class="carousel-btn next" aria-label="Siguiente"><i data-lucide="chevron-right"></i></button>
                     <div class="carousel-indicators">
                         <span class="indicator active"></span>
-                        <span class="indicator"></span>
                     </div>
                 </div>
                 <div class="product-info">
@@ -261,7 +271,7 @@
                 <div class="product-image carousel-container loro-19-img">
                     <div class="carousel-track">
                         <img src="./images/pico_loro_lachula.jpeg" alt="Pico de Loro 19cm 1" class="carousel-slide">
-                        <img src="./images/pico_de_loro_17cm_2.jpeg" alt="Pico de Loro 19cm 2" class="carousel-slide">
+                        <img src="./images/pico_de_loro_19cm_2.jpeg" alt="Pico de Loro 19cm 2" class="carousel-slide">
                     </div>
                     <button class="carousel-btn prev" aria-label="Anterior"><i data-lucide="chevron-left"></i></button>
                     <button class="carousel-btn next" aria-label="Siguiente"><i data-lucide="chevron-right"></i></button>
@@ -281,15 +291,13 @@
             <div class="product-card">
                 <div class="product-image carousel-container enroscada-img">
                     <div class="carousel-track">
-                        <img src="images/product_mate_imperial.png" alt="Pico de Loro Enroscada 1" class="carousel-slide">
-                        <img src="images/product_mate_imperial.png" alt="Pico de Loro Enroscada 2" class="carousel-slide">
-                        <img src="images/product_mate_imperial.png" alt="Pico de Loro Enroscada 3" class="carousel-slide">
+                        <img src="./images/pico_loro_enroscada.jpeg" alt="Pico de Loro Enroscada 1" class="carousel-slide">
+                        <img src="./images/pico_loro_enroscada_1.jpeg" alt="Pico de Loro Enroscada 2" class="carousel-slide">
                     </div>
                     <button class="carousel-btn prev" aria-label="Anterior"><i data-lucide="chevron-left"></i></button>
                     <button class="carousel-btn next" aria-label="Siguiente"><i data-lucide="chevron-right"></i></button>
                     <div class="carousel-indicators">
                         <span class="indicator active"></span>
-                        <span class="indicator"></span>
                         <span class="indicator"></span>
                     </div>
                 </div>
@@ -420,6 +428,12 @@
             <p>&copy; 2026 Ja, que mate!. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
 
     <!-- Custom JS -->
     <script src="app.js"></script>
