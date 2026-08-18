@@ -311,18 +311,24 @@ document.addEventListener('DOMContentLoaded', () => {
             // Add selected class to the clicked one
             currentSwatch.classList.add('selected');
 
-            // --- Change image based on color ---
-            const newImgSrc = currentSwatch.getAttribute('data-img');
+            // --- Change images based on color (Dual Gallery) ---
+            const newImgSrc1 = currentSwatch.getAttribute('data-img-1');
+            const newImgSrc2 = currentSwatch.getAttribute('data-img-2');
             const productCard = currentSwatch.closest('.product-card');
             
-            if (productCard && newImgSrc && newImgSrc.trim() !== '') {
-                // Seleccionamos la primera imagen del carrusel para ser la "principal"
-                const mainImg = productCard.querySelector('.carousel-slide');
-                if (mainImg) {
-                    mainImg.style.opacity = 0; // Fade out
+            if (productCard && newImgSrc1 && newImgSrc2) {
+                const slides = productCard.querySelectorAll('.carousel-slide');
+                if (slides.length >= 2) {
+                    // Fade out
+                    slides[0].style.opacity = 0;
+                    slides[1].style.opacity = 0;
+                    
                     setTimeout(() => {
-                        mainImg.src = newImgSrc;
-                        mainImg.style.opacity = 1; // Fade in
+                        slides[0].src = newImgSrc1;
+                        slides[1].src = newImgSrc2;
+                        // Fade in
+                        slides[0].style.opacity = 1;
+                        slides[1].style.opacity = 1;
                     }, 300); // 300ms matches CSS transition
                 }
             }
@@ -340,16 +346,19 @@ document.addEventListener('DOMContentLoaded', () => {
             img.addEventListener('click', () => {
                 lightbox.classList.add('show');
                 lightboxImg.src = img.src;
+                document.body.classList.add('no-scroll');
             });
         });
 
         lightboxClose.addEventListener('click', () => {
             lightbox.classList.remove('show');
+            document.body.classList.remove('no-scroll');
         });
 
         lightbox.addEventListener('click', (e) => {
             if (e.target !== lightboxImg) {
                 lightbox.classList.remove('show');
+                document.body.classList.remove('no-scroll');
             }
         });
     }

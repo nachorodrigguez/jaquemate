@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ja, que mate! | Mates Artesanales y Accesorios</title>
     <meta name="description"
         content="Mates artesanales, termos y materas de cuero de la más alta calidad. Inspirado en la tradición argentina con un diseño rústico y elegante.">
@@ -29,8 +29,7 @@
                 <a href="#mates">Mates</a>
                 <a href="#bombillas">Bombillas</a>
                 <a href="#termos">Termos</a>
-                <a href="#yerberas">Yerberas</a>
-                <a href="#materas">Materas</a>
+                <a href="#yerberas-y-materas">Yerberas y Materas</a>
             </nav>
 
             <div class="nav-icons">
@@ -50,8 +49,7 @@
         <a href="#mates">Mates</a>
         <a href="#bombillas">Bombillas</a>
         <a href="#termos">Termos</a>
-        <a href="#yerberas">Yerberas</a>
-        <a href="#materas">Materas</a>
+        <a href="#yerberas-y-materas">Yerberas y Materas</a>
     </div>
 
     <!-- Cart Modal -->
@@ -103,17 +101,17 @@
                 </div>
                 <h3>Termos</h3>
             </div>
-            <div class="category-card" onclick="location.href='#yerberas'">
+            <div class="category-card" onclick="location.href='#yerberas-y-materas'">
                 <div class="category-img-wrapper">
-                    <img src="images/product_matera.png" alt="Yerberas">
+                    <img src="images/product_matera.png" alt="Yerberas y Materas">
                 </div>
-                <h3>Yerberas</h3>
+                <h3>Yerberas y Materas</h3>
             </div>
-            <div class="category-card" onclick="location.href='#materas'">
+            <div class="category-card" onclick="location.href='#bombillas'">
                 <div class="category-img-wrapper">
-                    <img src="images/product_matera.png" alt="Materas">
+                    <img src="images/pico_de_loro_19cm.jpeg" alt="Bombillas">
                 </div>
-                <h3>Materas</h3>
+                <h3>Bombillas</h3>
             </div>
         </div>
     </section>
@@ -140,6 +138,7 @@
                     <h3 class="product-title">Mate Criollo</h3>
                     <p class="product-price" id="price-mate-criollo">$ 15.000</p>
                     <select class="variant-select" data-target="mate-criollo" style="margin-bottom: 1rem; padding: 0.5rem; border-radius: 5px; border: 1px solid var(--color-accent); font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); width: 100%; font-size: 16px;">
+                        <!-- Selección de Tipo -->
                         <option value="estandar" data-price="15000" data-name="Mate Criollo (Estándar)">Estándar</option>
                         <option value="personalizado" data-price="18000" data-name="Mate Criollo (Personalizado)">Personalizado</option>
                     </select>
@@ -155,13 +154,11 @@
                     <div class="carousel-track">
                         <img src="./images/imperial.jpeg" alt="Mate Imperial 1" class="carousel-slide">
                         <img src="./images/imperial_2.jpeg" alt="Mate Imperial 2" class="carousel-slide">
-                        <img src="./images/imperial_3.jpeg" alt="Mate Imperial 3" class="carousel-slide">
                     </div>
                     <button class="carousel-btn prev" aria-label="Anterior"><i data-lucide="chevron-left"></i></button>
                     <button class="carousel-btn next" aria-label="Siguiente"><i data-lucide="chevron-right"></i></button>
                     <div class="carousel-indicators">
                         <span class="indicator active"></span>
-                        <span class="indicator"></span>
                         <span class="indicator"></span>
                     </div>
                 </div>
@@ -169,6 +166,7 @@
                     <h3 class="product-title">Mate Imperial</h3>
                     <p class="product-price" id="price-mate-imperial">$ 25.000</p>
                     <select class="variant-select" data-target="mate-imperial" style="margin-bottom: 1rem; padding: 0.5rem; border-radius: 5px; border: 1px solid var(--color-accent); font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); width: 100%; font-size: 16px;">
+                        <!-- Selección de Tipo -->
                         <option value="estandar" data-price="25000" data-name="Mate Imperial (Estándar)">Estándar</option>
                         <option value="personalizado" data-price="28000" data-name="Mate Imperial (Personalizado)">Personalizado</option>
                     </select>
@@ -196,14 +194,14 @@
                     <h3 class="product-title">Mate Torpedo</h3>
                     <p class="product-price" id="price-mate-torpedo">$ 20.000</p>
                     <select class="variant-select" data-target="mate-torpedo" style="margin-bottom: 1rem; padding: 0.5rem; border-radius: 5px; border: 1px solid var(--color-accent); font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); width: 100%; font-size: 16px;">
+                        <!-- Selección de Tipo -->
                         <option value="estandar" data-price="20000" data-name="Mate Torpedo (Estándar)">Estándar</option>
                         <option value="personalizado" data-price="23000" data-name="Mate Torpedo (Personalizado)">Personalizado</option>
                     </select>
+                    <!-- Selección de Color -->
                     <div class="color-swatches">
-                        <!-- INSERTAR LINK FOTO NEGRA AQUÍ en data-img (Ej: data-img="./images/foto_negra.jpg") -->
-                        <button class="color-swatch selected" data-color="Negro" data-img="" style="background-color: #000000;" aria-label="Color Negro"></button>
-                        <!-- INSERTAR LINK FOTO MARRÓN AQUÍ en data-img (Ej: data-img="./images/foto_marron.jpg") -->
-                        <button class="color-swatch" data-color="Marrón" data-img="" style="background-color: #630b0b;" aria-label="Color Marrón"></button>
+                        <button class="color-swatch selected" data-color="Negro" data-img-1="images/torpedo_negro.jpeg" data-img-2="images/torpedo_negro_2.jpeg" style="background-color: #000000;" aria-label="Color Negro"></button>
+                        <button class="color-swatch" data-color="Marrón" data-img-1="images/torpedo_rojo.jpeg" data-img-2="images/torpedo_rojo_2.jpeg" style="background-color: #630b0b;" aria-label="Color Marrón"></button>
                     </div>
                     <button class="add-to-cart-btn" id="btn-mate-torpedo" data-id="mate-torpedo-estandar" data-name="Mate Torpedo (Estándar)" data-price="20000" data-img="images/product_mate_imperial.png">
                         Añadir al carrito
@@ -223,21 +221,20 @@
                     <div class="carousel-indicators">
                         <span class="indicator active"></span>
                         <span class="indicator"></span>
-                        <span class="indicator"></span>
                     </div>
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">Mate Camionero</h3>
                     <p class="product-price" id="price-mate-camionero">$ 20.000</p>
                     <select class="variant-select" data-target="mate-camionero" style="margin-bottom: 1rem; padding: 0.5rem; border-radius: 5px; border: 1px solid var(--color-accent); font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); width: 100%; font-size: 16px;">
+                        <!-- Selección de Tipo -->
                         <option value="estandar" data-price="20000" data-name="Mate Camionero (Estándar)">Estándar</option>
                         <option value="personalizado" data-price="23000" data-name="Mate Camionero (Personalizado)">Personalizado</option>
                     </select>
+                    <!-- Selección de Color -->
                     <div class="color-swatches">
-                        <!-- INSERTAR LINK FOTO NEGRA AQUÍ en data-img (Ej: data-img="./images/foto_negra.jpg") -->
-                        <button class="color-swatch selected" data-color="Negro" data-img="" style="background-color: #000000;" aria-label="Color Negro"></button>
-                        <!-- INSERTAR LINK FOTO MARRÓN AQUÍ en data-img (Ej: data-img="./images/foto_marron.jpg") -->
-                        <button class="color-swatch" data-color="Marrón" data-img="" style="background-color: #630b0b;" aria-label="Color Marrón"></button>
+                        <button class="color-swatch selected" data-color="Negro" data-img-1="images/camionero_3.jpeg" data-img-2="images/mate-camionero-negro-2.jpg" style="background-color: #000000;" aria-label="Color Negro"></button>
+                        <button class="color-swatch" data-color="Marrón" data-img-1="images/camionero_6.jpeg" data-img-2="images/camionero_5.jpeg" style="background-color: #630b0b;" aria-label="Color Marrón"></button>
                     </div>
                     <button class="add-to-cart-btn" id="btn-mate-camionero" data-id="mate-camionero-estandar" data-name="Mate Camionero (Estándar)" data-price="20000" data-img="images/product_mate_imperial.png">
                         Añadir al carrito
@@ -338,8 +335,8 @@
             </div>
         </div>
 
-        <h2 class="section-title" id="yerberas" style="margin-top: 4rem;">YERBERAS</h2>
-        <div class="product-grid" id="yerberas-grid">
+        <h2 class="section-title" id="yerberas-y-materas" style="margin-top: 4rem;">YERBERAS Y MATERAS</h2>
+        <div class="product-grid" id="yerberas-materas-grid">
             <div class="product-card">
                 <div class="product-image carousel-container yerbera-gamuza-img">
                     <div class="carousel-track">
@@ -359,10 +356,7 @@
                     </button>
                 </div>
             </div>
-        </div>
 
-        <h2 class="section-title" id="materas" style="margin-top: 4rem;">MATERAS</h2>
-        <div class="product-grid" id="materas-grid">
             <div class="product-card">
                 <div class="product-image carousel-container matera-negra-img">
                     <div class="carousel-track">
@@ -407,8 +401,7 @@
                     <li><a href="#mates">Mates</a></li>
                     <li><a href="#bombillas">Bombillas</a></li>
                     <li><a href="#termos">Termos</a></li>
-                    <li><a href="#yerberas">Yerberas</a></li>
-                    <li><a href="#materas">Materas</a></li>
+                    <li><a href="#yerberas-y-materas">Yerberas y Materas</a></li>
                 </ul>
             </div>
             <div class="footer-contact">
