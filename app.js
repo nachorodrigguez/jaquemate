@@ -245,6 +245,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     checkoutBtn.addEventListener('click', iniciarCheckout);
 
+    // --- Magnifier Lens Logic (Global) ---
+    const magnifierLens = document.createElement('div');
+    magnifierLens.classList.add('magnifier-lens');
+    document.body.appendChild(magnifierLens);
+
     // --- Carousel Logic ---
     document.querySelectorAll('.carousel-container').forEach(container => {
         const track = container.querySelector('.carousel-track');
@@ -337,31 +342,25 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentSwatch = e.target;
             const container = currentSwatch.closest('.color-swatches');
             
-            // Remove selected class from all swatches in this container
             container.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
-            
-            // Add selected class to the clicked one
             currentSwatch.classList.add('selected');
 
-            // --- Change images based on color (Dual Gallery) ---
             const newImgSrc1 = currentSwatch.getAttribute('data-img-1');
             const newImgSrc2 = currentSwatch.getAttribute('data-img-2');
             const productCard = currentSwatch.closest('.product-card');
             
-            if (productCard && newImgSrc1 && newImgSrc2) {
+            if (productCard && newImgSrc1) {
                 const slides = productCard.querySelectorAll('.carousel-slide');
-                if (slides.length >= 2) {
-                    // Fade out
+                if (slides.length > 0) {
                     slides[0].style.opacity = 0;
-                    slides[1].style.opacity = 0;
+                    if (slides.length >= 2 && newImgSrc2) slides[1].style.opacity = 0;
                     
                     setTimeout(() => {
                         slides[0].src = newImgSrc1;
-                        slides[1].src = newImgSrc2;
-                        // Fade in
+                        if (slides.length >= 2 && newImgSrc2) slides[1].src = newImgSrc2;
                         slides[0].style.opacity = 1;
-                        slides[1].style.opacity = 1;
-                    }, 300); // 300ms matches CSS transition
+                        if (slides.length >= 2 && newImgSrc2) slides[1].style.opacity = 1;
+                    }, 300);
                 }
             }
         });
@@ -382,15 +381,68 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        // --- Magnifier Lens for Lightbox ---
+        function hideLens() {
+            magnifierLens.style.display = 'none';
+        }
+
+        function showLens(e) {
+            magnifierLens.style.display = 'block';
+            magnifierLens.style.backgroundImage = `url(${lightboxImg.src})`;
+            magnifierLens.style.backgroundSize = `${lightboxImg.width * 1.5}px ${lightboxImg.height * 1.5}px`;
+            moveLens(e);
+        }
+
+        function moveLens(e) {
+            if (magnifierLens.style.display === 'none') return;
+            
+            let clientX, clientY;
+            if (e.type.includes('touch')) {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            } else {
+                clientX = e.clientX;
+                clientY = e.clientY;
+            }
+
+            const rect = lightboxImg.getBoundingClientRect();
+            let x = clientX - rect.left;
+            let y = clientY - rect.top;
+
+            magnifierLens.style.left = `${clientX - 125}px`; 
+            magnifierLens.style.top = `${clientY - 125}px`;
+
+            const bgX = (x / rect.width) * 100;
+            const bgY = (y / rect.height) * 100;
+            magnifierLens.style.backgroundPosition = `${bgX}% ${bgY}%`;
+        }
+
+        lightboxImg.addEventListener('mouseenter', showLens);
+        lightboxImg.addEventListener('mousemove', moveLens);
+        lightboxImg.addEventListener('mouseleave', hideLens);
+
+        lightboxImg.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) showLens(e);
+        }, { passive: true });
+        
+        lightboxImg.addEventListener('touchmove', (e) => {
+            if (e.touches.length === 1) moveLens(e);
+        }, { passive: true });
+
+        lightboxImg.addEventListener('touchend', hideLens);
+
+        // Close lightbox logic
         lightboxClose.addEventListener('click', () => {
             lightbox.classList.remove('show');
             document.body.classList.remove('no-scroll');
+            hideLens();
         });
 
         lightbox.addEventListener('click', (e) => {
             if (e.target !== lightboxImg) {
                 lightbox.classList.remove('show');
                 document.body.classList.remove('no-scroll');
+                hideLens();
             }
         });
     }
