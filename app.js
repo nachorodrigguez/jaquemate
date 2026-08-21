@@ -389,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function showLens(e) {
             magnifierLens.style.display = 'block';
             magnifierLens.style.backgroundImage = `url(${lightboxImg.src})`;
-            magnifierLens.style.backgroundSize = `${lightboxImg.width * 1.5}px ${lightboxImg.height * 1.5}px`;
+            magnifierLens.style.backgroundSize = `${lightboxImg.width * 1}px ${lightboxImg.height * 1}px`;
             moveLens(e);
         }
 
